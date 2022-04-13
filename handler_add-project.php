@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST) & !empty($_POST)) {
+if (isset($_POST) && !empty($_POST)) {
     $project_title = strip_tags($_POST['data_title']);
     $project_description = strip_tags($_POST['data_description']);
 
@@ -12,6 +12,9 @@ if (isset($_POST) & !empty($_POST)) {
     $query->bindValue(':project_description', $project_description, PDO::PARAM_STR);
     $query->execute();
     echo '<div>Projet added.</div>';
-    echo '<a href="index.php"> Back </a>';
+    echo '<div><a href="index.php"><button>Back</button></a></div>';
+} else {
+    echo "Complete all fields. ";
+    echo '<div><a href="index.php"><button>Back</button></a></div>';
 }
 ?>
